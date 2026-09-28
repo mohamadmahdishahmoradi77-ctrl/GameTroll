@@ -175,7 +175,7 @@ async function submitOrder(id){
 }
 function copyText(value,label){if(navigator.clipboard){navigator.clipboard.writeText(value).then(()=>toast(label+' کپی شد ✓')).catch(()=>toast('کپی انجام نشد'))}else{const a=document.createElement('textarea');a.value=value;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast(label+' کپی شد ✓')}}
 function shareItem(title,url){if(navigator.share){navigator.share({title:title,text:title,url:url}).catch(()=>{})}else toast('اشتراک‌گذاری در این مرورگر پشتیبانی نمی‌شود.')}
-function openModal(){document.getElementById('modalBack').classList.add('open')}function closeModal(){document.getElementById('modalBack').classList.remove('open')}
+function openModal(content){if(content!==undefined&&content!==null){document.getElementById('modal').innerHTML=content}document.getElementById('modalBack').classList.add('open')}function closeModal(){document.getElementById('modalBack').classList.remove('open')}
 function openDrawer(){document.getElementById('drawerBack').classList.add('open')}function closeDrawer(){document.getElementById('drawerBack').classList.remove('open')}
 function filterConsole(c){state.console=c;go('games');render()}
 function clearSearch(){state.query='';render()}
